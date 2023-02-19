@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store_app.apps.StoreAppConfig',
+    'captcha'
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CAPTCHA_LENGTH = 5 #можно указать длину строковой каптчи
+# CAPTCHA_MATH_CHALLENGE_OPERATOR = '+' #можно указать любой оператор для каптчи с вычеслением выражения
+# CAPTCHA_WORD_DICTIONARY = 'здесь по идее надо бы заранее в txt формате подготовить словарь из слов
+# и указать путь к этому словарю'
+# CAPTCHA_TIMEOUT = 17 # указали что через 17 минут каптча станет не действительной и пользователю стоило бы
+# заново заполнить каптчу
+# CAPTCHA_FONT_PATH = 'ввиде строки указываем путь к шрифту для каптчи'
+# CAPTCH_LETTER_ROTATION = (20, -15)  # ввиде кортежа указываем насколько градусов будет наклоняться шрифт
+
+'''Следующие две настройки нужны для защиты DOS атак'''
+# DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440 # 2,5МБ - величина байтов которое допустимо для получения данных от пользователей
+# в случае превышения будет вызвано исключение SuspiciousOperation
+# DATA_UPLOAD_MAX_NUMBER_FIELDS - 700 #количество допустимых POST параметров полученных в одном запросе
+# в случае превышения этого ограничения будет вызвано исключение SuspiciousOperation

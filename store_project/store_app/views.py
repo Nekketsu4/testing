@@ -64,7 +64,7 @@ def form_set_it(request):
         formset = test_form(request.POST)
         if formset.is_valid():
             for form in formset:
-                if form.cleaned_data and form.cleaned_data['DELETE']
+                if form.cleaned_data and form.cleaned_data['DELETE']:
                     keyword = form.cleaned_data['keyword']
                     rubric_id = form.cleaned_data['rubric'].pk
                     order = form.cleaned_data['ORDER']

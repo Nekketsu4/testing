@@ -49,8 +49,8 @@ class Clothes(models.Model):
     говоря простыми словами мы родителя делаем временным, не настоящим
     и теперь все данные передаются на ее производную модель ChildClothes
     '''
-    class Meta:
-        abstract = True
+    # class Meta:
+    #     abstract = True
 
 
 class ChildClothes(Clothes):
@@ -61,8 +61,8 @@ class ChildClothes(Clothes):
     '''Прокси модель - своего рода временная модель которая работает на свою
     базовую модель Clothes(отдельно для этой модели в БД не создается таблица)
     '''
-    class Meta:
-        proxy = True
+    # class Meta:
+    #     proxy = True
 
 
 class Firms(models.Model):
