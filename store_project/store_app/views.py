@@ -1,9 +1,11 @@
+from django.http import request
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 
+
 from .models import ListStore, RubricStore
-from .forms import  ListStoreForm
+from .forms import ListStoreForm, LookingForForm, formset_factory
 
 def index(request):
     '''
@@ -37,3 +39,37 @@ class ListStoreCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = RubricStore.objects.all()
         return context
+
+
+def looking_for():
+    if request.method == 'POST':
+        look_for = LookingForForm(request.POST)
+        if look_for.is_valid():
+            keyword = look_for.cleaned_data['keyword']
+            rubric_id = look_for.cleaned_data['rubric'].pk
+            goods = ListStore.objects.filter(title__icontains=keyword,
+                                             rubric=rubric_id)
+            context = {'goods': goods}
+            return render(request, 'store_app/looking_goods.html', context)
+    else:
+        look_for = LookingForForm()
+        context = {'form': look_for}
+        return render(request, 'store_app/looking_form')
+
+
+def form_set_it(request):
+    test_form = formset_factory(LookingForForm, extra=5, can_order=True,
+                                can_delete=True)
+    if request.method == 'POST':
+        formset = test_form(request.POST)
+        if formset.is_valid():
+            for form in formset:
+                if form.cleaned_data and form.cleaned_data['DELETE']
+                    keyword = form.cleaned_data['keyword']
+                    rubric_id = form.cleaned_data['rubric'].pk
+                    order = form.cleaned_data['ORDER']
+            return render(request, 'store_app/formset_res.html')
+    else:
+        formset = test_form()
+    context = {'formset': formset}
+    return render(request, 'store_app/formset.html', context)
