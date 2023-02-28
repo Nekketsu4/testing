@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store_app.apps.StoreAppConfig',
-    'captcha'
+    'captcha',
+
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [

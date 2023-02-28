@@ -1,4 +1,45 @@
 from django.db import models
+from django.contrib.postgres.fields import DateTimeRangeField, ArrayField, HStoreField
+from django.contrib.postgres.fields import JSONField, CICharField
+
+
+class PGSRoomReserving(models.Model):
+    name = models.CharField(max_length=20, verbose_name='Помещение')
+    reserving = DateTimeRangeField(verbose_name='Время резервирования')
+    cancelled = models.BooleanField(default=False, verbose_name='Отменить'
+                                                                'резервирование')
+
+
+class PGSRubric(models.Model):
+    name = models.CharField(max_length=20, verbose_name='Имя')
+    description = models.TextField(verbose_name='Описание')
+    tags = ArrayField(base_field=models.CharField(max_length=20),
+                      verbose_name='Теги')
+
+    class Meta:
+        indexes = [
+            models.Index(fields=('name', 'description'),
+                         name='i_pgsrubric_name_description',
+                         opclasses=('varchar_pattern_ops',
+                                    'bpchar_patter_ops'))
+        ]
+
+
+class PGSProject(models.Model):
+    name = models.CharField(max_length=40, verbose_name='Название')
+    platforms = ArrayField(base_field=ArrayField(
+        models.CharField(max_length=20)),
+    verbose_name='Использование платформы')
+
+
+class PGSProject2(models.Model):
+    nam = models.CharField(max_length=40, verbose_name='Название')
+    platforms = HStoreField(verbose_name='Использование платформы')
+
+
+class PGSProject3(models.Model):
+    name = CICharField(max_length=40, verbose_name='Название')
+    data = JSONField()
 
 
 class ListStoreManager(models.Manager):
