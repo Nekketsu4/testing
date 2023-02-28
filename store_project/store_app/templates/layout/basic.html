@@ -1,4 +1,6 @@
+{% load bootstrap4 %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +13,10 @@
       <h1>Товары</h1>
   </header>
   <nav>
-      <a href="{% url 'index' %}">На главную страницу</a>
-      <a href="{% url 'add' %}">Добавить</a>
+      <a href="{% url 'liststore:index' %}">На главную страницу</a>
+      <a href="{% url 'liststore:add' %}">Добавить</a>
       {% for rubric in rubrics %}
-      <a href="{% url 'check_rubric' rubric.pk %}">{{ rubric.name }}</a>
+      <a href="{% url 'liststore:check_rubric' rubric.pk %}">{{ rubric.name }}</a>
       {% endfor %}
   </nav>
   <section>

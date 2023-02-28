@@ -23,10 +23,10 @@ form_set = formset_factory(LookingForForm, extra=5, can_delete=True)
 Объявляем поле типа CaptchaField предназначенный 
 как раз для создания катптчи
 '''
-class CaptchaModelForm(ModelForm):
-    captcha = CaptchaField()
-    class Meta:
-        model = Experiment
+# class CaptchaModelForm(ModelForm):
+#     captcha = CaptchaField()
+#     class Meta:
+#         model = Experiment
 
 
 '''

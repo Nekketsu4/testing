@@ -1,12 +1,13 @@
 {% extends "layout/basic.html" %}
 
+
 {% block content %}
 {% for good in goods %}
     <div>
         <h2>{{ good.title }}</h2>
         <p>{{ good.content }}</p>
         <p>{{ good.price }} руб.</p>
-        <p><a href="{% url 'check_rubric' good.rubric.pk %}">{{ good.rubric.name }}</a></p>
+        <p><a href="{% url 'liststore:check_rubric' good.rubric.pk %}">{{ good.rubric.name }}</a></p>
         <p>{{ good.published|date:"d.m.Y. H:i:s" }}</p>
     </div>
 {% endfor %}

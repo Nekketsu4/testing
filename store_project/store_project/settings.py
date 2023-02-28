@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'captcha',
 
     'django.contrib.postgres',
+
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
