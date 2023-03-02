@@ -1,14 +1,24 @@
 {% extends "layout/basic.html" %}
 
+{# загружает  библиотеку bootstrap4 #}
 {% load bootstrap4 %}
+
+{# Подгружаем CSS и Javascript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Отобразит django.contrib.messages для оповещений Bootstrap #}
+{% bootstrap_messages %}
 
 {% block title %}Добавить новое{% endblock %}
 
 {% block content %}
 <h2>Добавить товар</h2>
-<form method="post">
+<form action="/url/to/submit" method="post" class="form">
     {% csrf_token %}
-    {% bootstrap_form form layout='horizontal' size='large' %}
-    {% bootstrap_button content='Сохранить' button_type='submit' button_class='btn-primary' %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    {% endbuttons %}
 </form>
 {% endblock %}

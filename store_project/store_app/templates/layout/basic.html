@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-      <h1>Товары</h1>
+      <h1 class="main-title">Товары</h1>
   </header>
   <nav>
       <a href="{% url 'liststore:index' %}">На главную страницу</a>
@@ -19,7 +19,7 @@
       <a href="{% url 'liststore:check_rubric' rubric.pk %}">{{ rubric.name }}</a>
       {% endfor %}
   </nav>
-  <section>
+  <section class="red-titles green-content" >
       {% block content %}
       {% endblock %}
   </section>
