@@ -1,40 +1,6 @@
-header {
-    width: 500px;
-}
-
-
-header h1.main-title {             /*адресован только классу h1.main-title(просто main-title и тп не будут учитываться*/
-    font-size: 40px;
-}
-
-body {
-    font-family: Times-New-Roman, sans-serif ;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-
-.red-titles h2 {
-    color: red;
-                /* теперь находим параметры не с помощью класса а использованием id (в HTML пишем id="название" а CSS #название) */
-}
-
-.green-content p {
-    color: limegreen;
-}
-
-
-nav {
-    font-size: 16pt;
-    width: 150px;
-    float: left;
-}
-
-nav a {
-    display: block;
-    margin: 10px 0px;
-}
-
-section {
-    margin-left: 170px;
+h1 {
+    font-style: normal;
+	font-size: 50px;
+    text-align: center;
+    margin-top: 20px;
 }

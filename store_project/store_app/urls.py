@@ -6,7 +6,7 @@ app_name = 'liststore'
 
 urlpatterns = [
     path('add/', ListStoreCreateView.as_view(), name='add'),
-    path('<int:check_rubric_id>/', check_rubric, name='check_rubric'),
+    path('<int:rub_id>/', check_rubric, name='check_rubric'),
     path('', index, name='index')
 ]
 
