@@ -1,6 +1,43 @@
-h1 {
-    font-style: normal;
-	font-size: 50px;
-    text-align: center;
-    margin-top: 20px;
+
+
+
+
+.container {
+	background-image: url(../img/goods.jpg);
+	box-sizing: border-box;
+	min-width: 600px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-position: center;
+    padding: 10px;
+}
+
+
+.container-part {
+	font-family: 'Courier New', monospace;
+	font-style: italic;
+	font-size: 70px;
+	text-align: center;
+	letter-spacing: 50px;
+    margin: 15px;
+    color: whitesmoke;
+    text-shadow: 6px 3px 2px black
+}
+
+.nav-container {
+	display: inline-flex;
+	margin-left: 10%;
+	border-right: solid 2px;
+	min-width: 300px;
+	height: 100vh;
+	background-color: grey;
+}
+
+.nav-list {
+	line-height: 70px;
+}
+
+.nav-item {
+	font-family: 'Consolas', monospace;
+	font-size: 1.5rem;
 }
